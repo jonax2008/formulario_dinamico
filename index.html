@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Dinámico</title>
+    <link rel="stylesheet" href="css/formulario.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h3>Formulario dinámico</h3>
+        <form action="" id="formulario">
+            <div class="row-form">
+                <input type="text" name="textNombre" id="textNombre" data-label="Nombre" data-formulario="formulario">
+            </div>
+            <div class="row-form">
+                <input type="text" name="textApellido" id="textApellido" data-label="Apellidos" data-formulario="formulario">
+            </div>
+            <div class="row-form">
+                <select name="cboCiudad" id="cboCiudad" data-label="Ciudad" data-formulario="formulario">
+                    <option value="0">Selecione una opción</option>
+                    <option value="1">Xalapa</option>
+                    <option value="2">Veracruz</option>
+                    <option value="3">Orizaba</option>
+                </select>
+            </div>
+            <div class="row-form">
+                <div class="input-radio">
+                    <div>
+                        <span>Sexo</span>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="radio" name="sexo" id="radioMasculino" data-label="Masculino" data-formulario="formulario">
+                        </div>
+                        <div>
+                            <input type="radio" name="sexo" id="radioFemenino" data-label="Femenino" data-formulario="formulario">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-form">
+                <button id="btnEnviar" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <script src="js/formulario.js"></script>
+</body>
+</html>
