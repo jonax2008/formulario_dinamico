@@ -1,3 +1,6 @@
+:root{
+    --border-radius: 5px;
+}
 *,
 *::after,
 *::before{
@@ -8,14 +11,14 @@
 }
 
 body{
-    font-size: 18px;
+    font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
+    color: #5c5c5c;
 }
 
 h3{
     font-weight: normal;
-    font-size: 3em;
+    font-size: 2em;
     margin-bottom: 0.5em;
 }
 
@@ -29,10 +32,10 @@ label{
     align-items: center;
     justify-content: flex-start;
     height: 100%;
-    padding-top: 5em;
+    padding-top: 2em;
     font-size: 1.3em;
-    width: 85%;
-    max-width: 700px;
+    width: 70%;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -42,13 +45,44 @@ label{
     flex-direction: column;
 }
 
-input[type="text"]{
+input[type="text"],
+select{
     padding: 1em;
     background-color: transparent;
     border: 1px solid #c9c9c9;
     width: 100%;
+    border-radius: var(--border-radius);
 }
 
 .row-form{
     padding: 1em;
+}
+
+.label,
+label{
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.radios{
+    display: flex;
+    gap: 1em;
+    text-align: center;
+}
+
+button{
+    display: block;
+    padding: 0.5em;
+    width: 100%;
+    background-color: #337ab7;
+    border: 1px solid #2e6da4;
+    color: #fff;
+    border-radius: var(--border-radius);
+    font-size: 0.75em;
+    transition: all ease 0.2s;
+}
+
+button:hover{
+    background-color: #2c6698;
+    cursor: pointer;
 }
