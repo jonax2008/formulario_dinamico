@@ -1,6 +1,10 @@
 const d = document;
 const elementos = d.querySelectorAll('[data-guardar="true"]');
+const formulario = d.querySelector('#formulario');
 
+formulario.onsubmit = () =>{
+    return validarFormulario();
+}
 crearLabel();
 
 function crearLabel() {
@@ -16,17 +20,45 @@ function crearLabel() {
 }
 
 function validarFormulario() {
-
+    let valido = true;
     elementos.forEach(elemento => {
-        let data = elemento.dataset;
+        if (valido) {
+            let data = elemento.dataset;
+            if (data.guardar) {
+                let valor = elemento.value;
 
-        if (data.guardar) {
-            let valor = elemento.value;
+                switch (data.tipo) {
+                    case 'select':
+                        if (valor == '0') {
+                            valido = false;
+                            elemento.focus();
+                        }
+                        break;
+                    case 'radio':
+                        let inputRadio = d.querySelectorAll('[type="radio"]');
+                        let checked = false;
+                        inputRadio.forEach(radio => {
+                            if (radio.checked) {
+                                checked = true;
+                            }
+                        });
+                        if (!checked) {
+                            valido = false;
+                        }
+                        break;
+                    default:
+                        if (!valor) {
+                            valido = false;
+                        }
+                        break;
+                }
 
-            if (!valor) {
-                alert(`El campo ${data.label} no puede ir vacío`);
-                elemento.focus();
+                if (!valido) {
+                    alert(`El campo ${data.label} no puede ir vacío`);
+                    elemento.focus();
+                }
             }
         }
     });
+    return valido;
 }
